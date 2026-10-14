@@ -1,0 +1,10 @@
+{
+  "cleanUrls": true,
+  "rewrites": [
+    { "source": "/", "destination": "/web_dashboard/index.html" },
+    { "source": "/assets/:match*", "destination": "/web_dashboard/assets/:match*" },
+    { "source": "/style.css", "destination": "/web_dashboard/style.css" },
+    { "source": "/app.js", "destination": "/web_dashboard/app.js" },
+    { "source": "/data.js", "destination": "/web_dashboard/data.js" }
+  ]
+}
