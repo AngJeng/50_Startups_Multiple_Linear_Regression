@@ -1,0 +1,6 @@
+Algorithm,Number of Features,Selected Features,RMSE,R-squared
+Mutual Information,1,[R&D Spend],8274.868018225996,0.9464587607787219
+Mutual Information,2,"[R&D Spend, Marketing Spend]",8198.79719078849,0.9474386447268488
+Mutual Information,3,"[R&D Spend, Marketing Spend, Administration]",8803.775790469344,0.939395591782057
+Mutual Information,4,"[R&D Spend, Marketing Spend, Administration, State_Florida]",9068.54118495631,0.9356955353579757
+Mutual Information,5,"[R&D Spend, Marketing Spend, Administration, State_Florida, State_New York]",9137.990152794951,0.9347068473282424

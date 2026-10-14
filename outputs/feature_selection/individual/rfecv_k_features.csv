@@ -1,0 +1,6 @@
+Algorithm,Number of Features,Selected Features,RMSE,R-squared
+RFECV,1,[R&D Spend],8274.868018225996,0.9464587607787219
+RFECV,2,"[R&D Spend, Marketing Spend]",8198.79719078849,0.9474386447268488
+RFECV,3,"[R&D Spend, Marketing Spend, State_Florida]",8376.450519771652,0.9451361446943113
+RFECV,4,"[R&D Spend, Marketing Spend, State_Florida, Administration]",9068.54118495631,0.9356955353579757
+RFECV,5,"[R&D Spend, Marketing Spend, State_Florida, Administration, State_New York]",9137.990152794946,0.9347068473282425

@@ -1,0 +1,26 @@
+Algorithm,Number of Features,Selected Features,RMSE,R-squared
+Correlation,1,[R&D Spend],8274.868018225996,0.9464587607787219
+Correlation,2,"[R&D Spend, Marketing Spend]",8198.79719078849,0.9474386447268488
+Correlation,3,"[R&D Spend, Marketing Spend, Administration]",8803.775790469344,0.939395591782057
+Correlation,4,"[R&D Spend, Marketing Spend, Administration, State_New York]",8997.199286108607,0.9367033175940518
+Correlation,5,"[R&D Spend, Marketing Spend, Administration, State_New York, State_Florida]",9137.990152794951,0.9347068473282424
+Mutual Information,1,[R&D Spend],8274.868018225996,0.9464587607787219
+Mutual Information,2,"[R&D Spend, Marketing Spend]",8198.79719078849,0.9474386447268488
+Mutual Information,3,"[R&D Spend, Marketing Spend, Administration]",8803.775790469344,0.939395591782057
+Mutual Information,4,"[R&D Spend, Marketing Spend, Administration, State_Florida]",9068.54118495631,0.9356955353579757
+Mutual Information,5,"[R&D Spend, Marketing Spend, Administration, State_Florida, State_New York]",9137.990152794951,0.9347068473282424
+RFE,1,[R&D Spend],8274.868018225996,0.9464587607787219
+RFE,2,"[R&D Spend, Marketing Spend]",8198.79719078849,0.9474386447268488
+RFE,3,"[R&D Spend, Marketing Spend, State_Florida]",8376.450519771652,0.9451361446943113
+RFE,4,"[R&D Spend, Administration, Marketing Spend, State_Florida]",9068.541184956315,0.9356955353579757
+RFE,5,"[R&D Spend, Administration, Marketing Spend, State_Florida, State_New York]",9137.990152794944,0.9347068473282425
+RFECV,1,[R&D Spend],8274.868018225996,0.9464587607787219
+RFECV,2,"[R&D Spend, Marketing Spend]",8198.79719078849,0.9474386447268488
+RFECV,3,"[R&D Spend, Marketing Spend, State_Florida]",8376.450519771652,0.9451361446943113
+RFECV,4,"[R&D Spend, Marketing Spend, State_Florida, Administration]",9068.54118495631,0.9356955353579757
+RFECV,5,"[R&D Spend, Marketing Spend, State_Florida, Administration, State_New York]",9137.990152794946,0.9347068473282425
+LASSO,1,[R&D Spend],8274.868018225996,0.9464587607787219
+LASSO,2,"[R&D Spend, State_New York]",8273.828202485935,0.9464722158635015
+LASSO,3,"[R&D Spend, State_New York, State_Florida]",8219.806004927406,0.9471689304016889
+LASSO,4,"[R&D Spend, State_New York, State_Florida, Administration]",8178.3692148524715,0.9477002402858977
+LASSO,5,"[R&D Spend, State_New York, State_Florida, Administration, Marketing Spend]",9137.990152794951,0.9347068473282424

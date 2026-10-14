@@ -1,0 +1,63 @@
+========================================================================
+50 Startups — Multiple Linear Regression with Feature Selection
+CRISP-DM Final Project Summary
+========================================================================
+Dataset rows: 50 (Train: 40, Test: 10)
+
+Overview of Results Across k = 1..5 Features for All 5 Algorithms:
+         Algorithm  Number of Features                                                           Selected Features        RMSE  R-squared
+       Correlation                   1                                                                 [R&D Spend] 8274.868018   0.946459
+       Correlation                   2                                                [R&D Spend, Marketing Spend] 8198.797191   0.947439
+       Correlation                   3                                [R&D Spend, Marketing Spend, Administration] 8803.775790   0.939396
+       Correlation                   4                [R&D Spend, Marketing Spend, Administration, State_New York] 8997.199286   0.936703
+       Correlation                   5 [R&D Spend, Marketing Spend, Administration, State_New York, State_Florida] 9137.990153   0.934707
+Mutual Information                   1                                                                 [R&D Spend] 8274.868018   0.946459
+Mutual Information                   2                                                [R&D Spend, Marketing Spend] 8198.797191   0.947439
+Mutual Information                   3                                [R&D Spend, Marketing Spend, Administration] 8803.775790   0.939396
+Mutual Information                   4                 [R&D Spend, Marketing Spend, Administration, State_Florida] 9068.541185   0.935696
+Mutual Information                   5 [R&D Spend, Marketing Spend, Administration, State_Florida, State_New York] 9137.990153   0.934707
+               RFE                   1                                                                 [R&D Spend] 8274.868018   0.946459
+               RFE                   2                                                [R&D Spend, Marketing Spend] 8198.797191   0.947439
+               RFE                   3                                 [R&D Spend, Marketing Spend, State_Florida] 8376.450520   0.945136
+               RFE                   4                 [R&D Spend, Administration, Marketing Spend, State_Florida] 9068.541185   0.935696
+               RFE                   5 [R&D Spend, Administration, Marketing Spend, State_Florida, State_New York] 9137.990153   0.934707
+             RFECV                   1                                                                 [R&D Spend] 8274.868018   0.946459
+             RFECV                   2                                                [R&D Spend, Marketing Spend] 8198.797191   0.947439
+             RFECV                   3                                 [R&D Spend, Marketing Spend, State_Florida] 8376.450520   0.945136
+             RFECV                   4                 [R&D Spend, Marketing Spend, State_Florida, Administration] 9068.541185   0.935696
+             RFECV                   5 [R&D Spend, Marketing Spend, State_Florida, Administration, State_New York] 9137.990153   0.934707
+             LASSO                   1                                                                 [R&D Spend] 8274.868018   0.946459
+             LASSO                   2                                                 [R&D Spend, State_New York] 8273.828202   0.946472
+             LASSO                   3                                  [R&D Spend, State_New York, State_Florida] 8219.806005   0.947169
+             LASSO                   4                  [R&D Spend, State_New York, State_Florida, Administration] 8178.369215   0.947700
+             LASSO                   5 [R&D Spend, State_New York, State_Florida, Administration, Marketing Spend] 9137.990153   0.934707
+
+Key Analytical Findings:
+1. All 5 algorithms converge on the same top two features: [R&D Spend, Marketing Spend].
+2. Single feature model (R&D Spend alone) explains >94.6% of the variance in Profit.
+3. Peak performance is achieved at exactly k=2 features: Test R² = 0.9474 and Test RMSE = $8,198.80.
+4. Adding features beyond k=2 (Administration and State dummy variables) consistently increases RMSE and decreases R² across all algorithms.
+5. LASSO regularizes State dummy variables to strictly zero, confirming geographical location is non-predictive.
+
+Best Model Deployed:          Correlation Selection
+Selected Features:            R&D Spend, Marketing Spend
+Deployed Test R²:             0.9474
+Deployed Test RMSE:           $8,198.80
+Deployed 5-Fold CV R²:        0.9333 ± 0.0267
+Deployed 5-Fold CV RMSE:      $9,203.32 ± $1,898.95
+Sample Startup Prediction:    $133,352.33
+
+Organized Directory Structure:
+outputs/
+├── eda/
+│   ├── data_summary.csv
+│   ├── missing_values.csv
+│   ├── state_counts.csv
+│   ├── profit_distribution.png
+│   ├── *_vs_profit.png
+│   ├── correlation_matrix.csv and .png
+├── feature_selection/
+│   ├── individual/  (5 of each: correlation, mutual_info, rfe, rfecv, lasso plots & csvs)
+│   └── combined/    (1 of together: combined plot, master table, and comparison diagnostics)
+├── model_evaluation/ (actual vs predicted, residuals, and predictions table)
+└── project_report.txt

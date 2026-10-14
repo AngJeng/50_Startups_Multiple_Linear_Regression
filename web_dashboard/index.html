@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>50 Startups — ML Feature Selection & Profit Regression</title>
+  <meta name="description" content="CRISP-DM Machine Learning Platform for 50 Startups Multiple Linear Regression with 5 Feature Selection Algorithms">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Header / Nav -->
+  <header class="navbar">
+    <div class="nav-container">
+      <div class="brand">
+        <div class="brand-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+          </svg>
+        </div>
+        <div class="brand-text">
+          <span class="brand-title">50 Startups ML</span>
+          <span class="brand-subtitle">Feature Selection Analytics & Live Deployment</span>
+        </div>
+      </div>
+      <div class="nav-badge">
+        <span class="pulse-dot"></span>
+        <span>Model Deployed</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero-section">
+    <div class="hero-container">
+      <div class="badge-tag">CRISP-DM Machine Learning Framework</div>
+      <h1 class="hero-title">Startup Profit Prediction & Feature Selection Intelligence</h1>
+      <p class="hero-desc">
+        Comprehensive comparative study of 5 feature selection algorithms across $k=1$ to $5$ features,
+        benchmarking filter, wrapper, and embedded techniques to eliminate multicollinearity and maximize generalization.
+      </p>
+
+      <!-- KPI Metrics Row -->
+      <div class="kpi-grid">
+        <div class="kpi-card" id="kpi-opt-r2">
+          <div class="kpi-label">Optimal Test R²</div>
+          <div class="kpi-value text-emerald">0.9474</div>
+          <div class="kpi-sub"><span class="kpi-badge-pos">+1.27%</span> vs Baseline (0.9347)</div>
+        </div>
+        <div class="kpi-card" id="kpi-opt-rmse">
+          <div class="kpi-label">Optimal Test RMSE</div>
+          <div class="kpi-value text-blue">$8,198.80</div>
+          <div class="kpi-sub"><span class="kpi-badge-pos">-$939.19</span> Error Reduction</div>
+        </div>
+        <div class="kpi-card" id="kpi-features">
+          <div class="kpi-label">Optimal Features</div>
+          <div class="kpi-value text-purple">2 / 5</div>
+          <div class="kpi-sub">R&D Spend + Marketing Spend</div>
+        </div>
+        <div class="kpi-card" id="kpi-consensus">
+          <div class="kpi-label">Algorithm Consensus</div>
+          <div class="kpi-value text-amber">100%</div>
+          <div class="kpi-sub">All 5 Algorithms Agree on Top 2</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Main Navigation Tabs -->
+  <main class="main-container">
+    <nav class="tab-nav" aria-label="Dashboard views">
+      <button class="tab-btn active" data-tab="tab-feature-selection">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16M4 12h16M4 18h7"/></svg>
+        Feature Selection ($k=1..5$)
+      </button>
+      <button class="tab-btn" data-tab="tab-predictor">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+        Live Profit Predictor
+      </button>
+      <button class="tab-btn" data-tab="tab-eda">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
+        Dataset & EDA
+      </button>
+      <button class="tab-btn" data-tab="tab-diagnostics">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 20V10M12 20V4M6 20v-6"/></svg>
+        Model Diagnostics
+      </button>
+      <button class="tab-btn" data-tab="tab-report">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+        CRISP-DM Report
+      </button>
+    </nav>
+
+    <!-- TAB 1: FEATURE SELECTION (5 of each & 1 of together) -->
+    <section id="tab-feature-selection" class="tab-content active">
+      <div class="content-header">
+        <div>
+          <h2>Evaluation Across 5 Feature Selection Algorithms ($k = 1$ to $5$)</h2>
+          <p class="section-subtitle">
+            Toggle between the combined comparative master analysis (1 of together) and individual algorithm progressions (5 of each).
+          </p>
+        </div>
+      </div>
+
+      <!-- Algorithm Filter Chips -->
+      <div class="filter-chips-container">
+        <button class="chip active" data-algo="combined">1 Together: All 5 Algorithms Combined</button>
+        <button class="chip" data-algo="correlation">Correlation Filter (|r|)</button>
+        <button class="chip" data-algo="mutual_info">Mutual Information (MI)</button>
+        <button class="chip" data-algo="rfe">RFE Wrapper</button>
+        <button class="chip" data-algo="rfecv">RFECV Cross-Validated</button>
+        <button class="chip" data-algo="lasso">LASSO Regularization Path</button>
+      </div>
+
+      <!-- Visual Chart Display -->
+      <div class="card chart-card">
+        <div class="card-header">
+          <div class="card-title-group">
+            <h3 id="current-chart-title">RMSE & R-squared by Number of Features — All 5 Algorithms Combined</h3>
+            <span class="card-badge" id="current-chart-badge">Combined Benchmark</span>
+          </div>
+          <a id="chart-download-btn" href="assets/fs_combined/combined_algorithms_k_features.png" download class="btn-sm">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
+            High-Res PNG
+          </a>
+        </div>
+        <div class="chart-img-wrapper">
+          <img id="main-feature-chart" src="assets/fs_combined/combined_algorithms_k_features.png" alt="Feature Selection Comparison Plot">
+        </div>
+      </div>
+
+      <!-- Dynamic Data Table -->
+      <div class="card table-card">
+        <div class="card-header">
+          <h3 id="current-table-title">Performance Metrics Table ($k = 1$ to $5$)</h3>
+          <span class="table-caption">Sorted by Number of Features</span>
+        </div>
+        <div class="table-responsive">
+          <table class="data-table" id="feature-selection-table">
+            <thead>
+              <tr>
+                <th>Algorithm</th>
+                <th>Features ($k$)</th>
+                <th>Selected Feature Subset</th>
+                <th>RMSE ($)</th>
+                <th>R-squared ($R^2$)</th>
+                <th>Status</th>
+              </tr>
+            </thead>
+            <tbody id="feature-table-body">
+              <!-- Populated by JS -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Theoretical Insight Callout -->
+      <div class="insight-banner">
+        <div class="insight-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
+        </div>
+        <div class="insight-text">
+          <strong>Key Statistical Takeaway (Occam's Razor & The Curse of Redundancy):</strong>
+          Across all algorithms, the model strictly achieves its global minimum error at $k=2$ (`R&D Spend` + `Marketing Spend`).
+          Adding `Administration` or `State` introduces parameter estimation variance without supplying new marginal information, inflating RMSE from <strong>$8,198.80</strong> up to <strong>$9,137.99</strong>.
+        </div>
+      </div>
+    </section>
+
+    <!-- TAB 2: LIVE PREDICTOR -->
+    <section id="tab-predictor" class="tab-content">
+      <div class="content-header">
+        <div>
+          <h2>Interactive Startup Profit Predictor</h2>
+          <p class="section-subtitle">
+            Enter expenditure details and company location to estimate annual startup profit in real-time using the deployed production pipeline.
+          </p>
+        </div>
+      </div>
+
+      <div class="predictor-layout">
+        <!-- Input Form -->
+        <div class="card predictor-form-card">
+          <div class="card-header">
+            <h3>Startup Financial Profile</h3>
+            <button id="reset-inputs-btn" class="btn-text">Reset Example</button>
+          </div>
+          <form id="prediction-form">
+            <div class="form-group">
+              <label for="input-rd">
+                <span>R&D Spend ($)</span>
+                <span class="label-val" id="val-rd">$100,000</span>
+              </label>
+              <input type="range" id="slider-rd" min="0" max="200000" step="1000" value="100000">
+              <input type="number" id="input-rd" class="form-control" value="100000" min="0" max="1000000">
+            </div>
+
+            <div class="form-group">
+              <label for="input-admin">
+                <span>Administration Spend ($)</span>
+                <span class="label-val" id="val-admin">$120,000</span>
+              </label>
+              <input type="range" id="slider-admin" min="0" max="200000" step="1000" value="120000">
+              <input type="number" id="input-admin" class="form-control" value="120000" min="0" max="1000000">
+            </div>
+
+            <div class="form-group">
+              <label for="input-marketing">
+                <span>Marketing Spend ($)</span>
+                <span class="label-val" id="val-marketing">$250,000</span>
+              </label>
+              <input type="range" id="slider-marketing" min="0" max="500000" step="2500" value="250000">
+              <input type="number" id="input-marketing" class="form-control" value="250000" min="0" max="2000000">
+            </div>
+
+            <div class="form-group">
+              <label for="input-state">
+                <span>Headquarters State</span>
+              </label>
+              <select id="input-state" class="form-control">
+                <option value="New York" selected>New York</option>
+                <option value="California">California</option>
+                <option value="Florida">Florida</option>
+              </select>
+            </div>
+          </form>
+        </div>
+
+        <!-- Output Prediction Cards -->
+        <div class="predictor-results">
+          <!-- Recommended Model -->
+          <div class="card prediction-card highlight-card">
+            <div class="pred-header">
+              <span class="pred-tag best-tag">Optimal Model (Feature Selected)</span>
+              <span class="pred-feats">2 Features: R&D + Marketing</span>
+            </div>
+            <div class="pred-body">
+              <div class="pred-label">Projected Annual Profit</div>
+              <div class="pred-value text-emerald" id="pred-best-val">$133,352.33</div>
+              <p class="pred-note">Based on Correlation / RFECV selected feature subset ($R^2 = 0.9474$).</p>
+            </div>
+            <div class="pred-formula">
+              <code>Profit = $109,446.45 + (36,426.11 × z_rd) + (4,021.92 × z_mkt)</code>
+            </div>
+          </div>
+
+          <!-- Baseline Model -->
+          <div class="card prediction-card">
+            <div class="pred-header">
+              <span class="pred-tag base-tag">Baseline Model (Full 5 Features)</span>
+              <span class="pred-feats">All Features Included</span>
+            </div>
+            <div class="pred-body">
+              <div class="pred-label">Projected Annual Profit</div>
+              <div class="pred-value text-blue" id="pred-base-val">$133,698.91</div>
+              <p class="pred-note">Includes Administration and State dummy variables ($R^2 = 0.9347$).</p>
+            </div>
+            <div class="pred-diff">
+              <span class="diff-label">Variance Discrepancy:</span>
+              <span class="diff-value" id="pred-diff-val">-$346.58</span>
+              <span class="diff-explain">(Noise from uninformative state & admin predictors)</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TAB 3: EDA & DATASET -->
+    <section id="tab-eda" class="tab-content">
+      <div class="content-header">
+        <div>
+          <h2>Exploratory Data Analysis (EDA)</h2>
+          <p class="section-subtitle">
+            Inspect the underlying 50 Startups dataset, distribution curves, and Pearson correlation matrices.
+          </p>
+        </div>
+      </div>
+
+      <div class="grid-2-col">
+        <div class="card">
+          <div class="card-header">
+            <h3>Pearson Correlation Matrix</h3>
+          </div>
+          <div class="chart-img-wrapper">
+            <img src="assets/eda/correlation_matrix.png" alt="Correlation Matrix">
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-header">
+            <h3>Target Profit Distribution</h3>
+          </div>
+          <div class="chart-img-wrapper">
+            <img src="assets/eda/profit_distribution.png" alt="Profit Distribution">
+          </div>
+        </div>
+      </div>
+
+      <div class="grid-3-col" style="margin-top: 1.5rem;">
+        <div class="card">
+          <div class="card-header"><h3>R&D vs Profit</h3></div>
+          <div class="chart-img-wrapper"><img src="assets/eda/randd_spend_vs_profit.png" alt="R&D vs Profit"></div>
+        </div>
+        <div class="card">
+          <div class="card-header"><h3>Marketing vs Profit</h3></div>
+          <div class="chart-img-wrapper"><img src="assets/eda/marketing_spend_vs_profit.png" alt="Marketing vs Profit"></div>
+        </div>
+        <div class="card">
+          <div class="card-header"><h3>Administration vs Profit</h3></div>
+          <div class="chart-img-wrapper"><img src="assets/eda/administration_vs_profit.png" alt="Admin vs Profit"></div>
+        </div>
+      </div>
+
+      <!-- Raw Dataset Table -->
+      <div class="card table-card" style="margin-top: 1.5rem;">
+        <div class="card-header">
+          <h3>50 Startups Raw Dataset</h3>
+          <div class="table-search-group">
+            <input type="text" id="dataset-search" placeholder="Search startup records..." class="search-input">
+            <a href="assets/50_Startups.csv" download class="btn-sm">Download CSV</a>
+          </div>
+        </div>
+        <div class="table-responsive">
+          <table class="data-table" id="raw-data-table">
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>R&D Spend ($)</th>
+                <th>Administration ($)</th>
+                <th>Marketing Spend ($)</th>
+                <th>State</th>
+                <th>Profit ($)</th>
+              </tr>
+            </thead>
+            <tbody id="raw-table-body">
+              <!-- Populated by JS -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- TAB 4: MODEL DIAGNOSTICS -->
+    <section id="tab-diagnostics" class="tab-content">
+      <div class="content-header">
+        <div>
+          <h2>Model Validation, RFECV Curves & Diagnostics</h2>
+          <p class="section-subtitle">
+            Diagnostic verification confirming residual homoscedasticity, cross-validation minima, and LASSO shrinkage.
+          </p>
+        </div>
+      </div>
+
+      <div class="grid-2-col">
+        <div class="card">
+          <div class="card-header">
+            <h3>Actual vs Predicted Profit (Test Set)</h3>
+          </div>
+          <div class="chart-img-wrapper">
+            <img src="assets/eval/actual_vs_predicted.png" alt="Actual vs Predicted">
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-header">
+            <h3>Residual Analysis Plot</h3>
+          </div>
+          <div class="chart-img-wrapper">
+            <img src="assets/eval/residual_analysis.png" alt="Residuals">
+          </div>
+        </div>
+      </div>
+
+      <div class="grid-2-col" style="margin-top: 1.5rem;">
+        <div class="card">
+          <div class="card-header">
+            <h3>RFECV Error Curve</h3>
+          </div>
+          <div class="chart-img-wrapper">
+            <img src="assets/fs_combined/rfecv_curve.png" alt="RFECV Curve">
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-header">
+            <h3>LASSO Coefficients (Grey = Zeroed)</h3>
+          </div>
+          <div class="chart-img-wrapper">
+            <img src="assets/fs_combined/lasso_coefficients.png" alt="LASSO Coefficients">
+          </div>
+        </div>
+      </div>
+
+      <!-- Feature Importance Ranking Table -->
+      <div class="card table-card" style="margin-top: 1.5rem;">
+        <div class="card-header">
+          <h3>Master Feature Importance & Diagnostic Scores</h3>
+        </div>
+        <div class="table-responsive">
+          <table class="data-table" id="diag-table">
+            <thead>
+              <tr>
+                <th>Feature</th>
+                <th>Pearson $r$</th>
+                <th>Abs Pearson $|r|$</th>
+                <th>Mutual Information</th>
+                <th>RFE Rank</th>
+                <th>LASSO Standardized Coef</th>
+                <th>Selected by LASSO</th>
+              </tr>
+            </thead>
+            <tbody id="diag-table-body">
+              <!-- Populated by JS -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- TAB 5: CRISP-DM REPORT -->
+    <section id="tab-report" class="tab-content">
+      <div class="content-header">
+        <div>
+          <h2>CRISP-DM Project Lifecycle Summary</h2>
+          <p class="section-subtitle">
+            Documentation of the 6 phases of the Cross-Industry Standard Process for Data Mining.
+          </p>
+        </div>
+      </div>
+
+      <div class="crisp-steps-grid">
+        <div class="card crisp-card">
+          <div class="step-num">01</div>
+          <h3>Business Understanding</h3>
+          <p>
+            Determine which expenditure categories drive corporate profitability in early-stage startups and eliminate noise variables to prevent overfitting.
+          </p>
+        </div>
+
+        <div class="card crisp-card">
+          <div class="step-num">02</div>
+          <h3>Data Understanding</h3>
+          <p>
+            Analyze 50 startup records across 4 predictors (`R&D Spend`, `Administration`, `Marketing Spend`, `State`). Verified zero missing values and no duplicates.
+          </p>
+        </div>
+
+        <div class="card crisp-card">
+          <div class="step-num">03</div>
+          <h3>Data Preparation</h3>
+          <p>
+            Stratified train/test split (80/20). Imputation with median/mode and standardization via `StandardScaler` to ensure unbiased regularization and RFE ranking.
+          </p>
+        </div>
+
+        <div class="card crisp-card">
+          <div class="step-num">04</div>
+          <h3>Modeling</h3>
+          <p>
+            Constructed end-to-end scikit-learn Pipelines evaluating 5 feature selection methods: Correlation, Mutual Information, RFE, RFECV, and LASSO.
+          </p>
+        </div>
+
+        <div class="card crisp-card">
+          <div class="step-num">05</div>
+          <h3>Evaluation</h3>
+          <p>
+            Demonstrated that a 2-feature model achieves optimal generalization (Test $R^2 = 0.9474$, Test RMSE = $8,198.80$), outperforming the full 5-feature baseline.
+          </p>
+        </div>
+
+        <div class="card crisp-card">
+          <div class="step-num">06</div>
+          <h3>Deployment</h3>
+          <p>
+            Serialized optimal pipeline into `startup_profit_model.joblib` and deployed full interactive web dashboard live to Vercel.
+          </p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-container">
+      <p>© 50 Startups CRISP-DM Machine Learning Project — Built with Python, Scikit-Learn, and Vercel Deployment.</p>
+    </div>
+  </footer>
+
+  <script src="data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

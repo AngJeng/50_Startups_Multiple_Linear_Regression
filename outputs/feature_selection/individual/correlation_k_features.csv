@@ -1,0 +1,6 @@
+Algorithm,Number of Features,Selected Features,RMSE,R-squared
+Correlation,1,[R&D Spend],8274.868018225996,0.9464587607787219
+Correlation,2,"[R&D Spend, Marketing Spend]",8198.79719078849,0.9474386447268488
+Correlation,3,"[R&D Spend, Marketing Spend, Administration]",8803.775790469344,0.939395591782057
+Correlation,4,"[R&D Spend, Marketing Spend, Administration, State_New York]",8997.199286108607,0.9367033175940518
+Correlation,5,"[R&D Spend, Marketing Spend, Administration, State_New York, State_Florida]",9137.990152794951,0.9347068473282424

@@ -1,0 +1,6 @@
+Algorithm,Number of Features,Selected Features,RMSE,R-squared
+LASSO,1,[R&D Spend],8274.868018225996,0.9464587607787219
+LASSO,2,"[R&D Spend, State_New York]",8273.828202485935,0.9464722158635015
+LASSO,3,"[R&D Spend, State_New York, State_Florida]",8219.806004927406,0.9471689304016889
+LASSO,4,"[R&D Spend, State_New York, State_Florida, Administration]",8178.3692148524715,0.9477002402858977
+LASSO,5,"[R&D Spend, State_New York, State_Florida, Administration, Marketing Spend]",9137.990152794951,0.9347068473282424

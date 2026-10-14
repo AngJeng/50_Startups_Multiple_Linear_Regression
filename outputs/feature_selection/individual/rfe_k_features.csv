@@ -1,0 +1,6 @@
+Algorithm,Number of Features,Selected Features,RMSE,R-squared
+RFE,1,[R&D Spend],8274.868018225996,0.9464587607787219
+RFE,2,"[R&D Spend, Marketing Spend]",8198.79719078849,0.9474386447268488
+RFE,3,"[R&D Spend, Marketing Spend, State_Florida]",8376.450519771652,0.9451361446943113
+RFE,4,"[R&D Spend, Administration, Marketing Spend, State_Florida]",9068.541184956315,0.9356955353579757
+RFE,5,"[R&D Spend, Administration, Marketing Spend, State_Florida, State_New York]",9137.990152794944,0.9347068473282425
