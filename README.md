@@ -1,3 +1,6 @@
+<img width="1624" height="999" alt="截圖 2026-10-14 中午12 03 39" src="https://github.com/user-attachments/assets/7f6df446-f204-40b8-b4c0-954e6a9fbcbe" />
+<img width="1624" height="999" alt="截圖 2026-10-14 中午12 03 31" src="https://github.com/user-attachments/assets/9e1b109e-32ec-45e5-badd-fdf76febf9b9" />
+
 # 50 Startups — Multiple Linear Regression & Feature Selection (CRISP-DM)
 
 [![GitHub Repo](https://img.shields.io/badge/GitHub-Repository-blue?logo=github)](https://github.com/AngJeng/50_Startups_Multiple_Linear_Regression)
